@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/my-weather-app/static/css/main.1edf8d6a.chunk.css",
-    "main.js": "/my-weather-app/static/js/main.a8b756ba.chunk.js",
-    "main.js.map": "/my-weather-app/static/js/main.a8b756ba.chunk.js.map",
-    "runtime-main.js": "/my-weather-app/static/js/runtime-main.5be565a2.js",
-    "runtime-main.js.map": "/my-weather-app/static/js/runtime-main.5be565a2.js.map",
-    "static/js/2.58242742.chunk.js": "/my-weather-app/static/js/2.58242742.chunk.js",
-    "static/js/2.58242742.chunk.js.map": "/my-weather-app/static/js/2.58242742.chunk.js.map",
-    "static/js/3.375b8213.chunk.js": "/my-weather-app/static/js/3.375b8213.chunk.js",
-    "static/js/3.375b8213.chunk.js.map": "/my-weather-app/static/js/3.375b8213.chunk.js.map",
+    "main.css": "/my-weather-app/static/css/main.5ae36a24.chunk.css",
+    "main.js": "/my-weather-app/static/js/main.cd4f903d.chunk.js",
+    "main.js.map": "/my-weather-app/static/js/main.cd4f903d.chunk.js.map",
+    "runtime-main.js": "/my-weather-app/static/js/runtime-main.c89a262b.js",
+    "runtime-main.js.map": "/my-weather-app/static/js/runtime-main.c89a262b.js.map",
+    "static/js/2.b79bd9e5.chunk.js": "/my-weather-app/static/js/2.b79bd9e5.chunk.js",
+    "static/js/2.b79bd9e5.chunk.js.map": "/my-weather-app/static/js/2.b79bd9e5.chunk.js.map",
+    "static/js/3.731bb8ff.chunk.js": "/my-weather-app/static/js/3.731bb8ff.chunk.js",
+    "static/js/3.731bb8ff.chunk.js.map": "/my-weather-app/static/js/3.731bb8ff.chunk.js.map",
     "index.html": "/my-weather-app/index.html",
-    "static/css/main.1edf8d6a.chunk.css.map": "/my-weather-app/static/css/main.1edf8d6a.chunk.css.map",
-    "static/js/2.58242742.chunk.js.LICENSE.txt": "/my-weather-app/static/js/2.58242742.chunk.js.LICENSE.txt"
+    "static/css/main.5ae36a24.chunk.css.map": "/my-weather-app/static/css/main.5ae36a24.chunk.css.map",
+    "static/js/2.b79bd9e5.chunk.js.LICENSE.txt": "/my-weather-app/static/js/2.b79bd9e5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5be565a2.js",
-    "static/js/2.58242742.chunk.js",
-    "static/css/main.1edf8d6a.chunk.css",
-    "static/js/main.a8b756ba.chunk.js"
+    "static/js/runtime-main.c89a262b.js",
+    "static/js/2.b79bd9e5.chunk.js",
+    "static/css/main.5ae36a24.chunk.css",
+    "static/js/main.cd4f903d.chunk.js"
   ]
 }
