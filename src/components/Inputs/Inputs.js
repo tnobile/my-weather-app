@@ -11,7 +11,7 @@ const Inputs = (props) => {
                     placeholder="Enter Key"
                     maxLength="49"
                     className={classes.textInput}
-                    value={props.key}
+                    value={props.mykey}
                     onChange={e => props.handleKey(e.target.value)}
                 />
                 <input
