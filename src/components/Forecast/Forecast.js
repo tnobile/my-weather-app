@@ -23,7 +23,7 @@ const Forecast = () => {
         setLoading(true);
 
 
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&units=${unit}&appid=${key}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&units=${unit}&appid=${key}`;
         fetch(url)
             //  The promise, returned by fetch, resolves with an object of the built-in Response class 
             //  as soon as the server responds with headers.

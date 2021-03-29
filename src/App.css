@@ -48,11 +48,12 @@ main {
 
 footer {
   padding: 2px;
-  min-height: 50px;
+  min-height: 20px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
+  color:blue; 
   background: #EEEEEE;
   font-size: small;
   text-align: center;
