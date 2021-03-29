@@ -1,22 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Forecast from "./components/Forecast/Forecast";
+import Logo from "./components/Logo/Logo";
 
+/**
+ * https://rapidapi.com/blog/weather-app-react/
+ * https://github.com/jdretz/rapid-api-react-weather-app-tutorial
+ */
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Logo />
+        <h1> Reactive Weather App</h1>
+        <main>
+          <Forecast />
+        </main>
+        <footer>
+          Page created by tnobile.
+        </footer>
       </header>
     </div>
   );
