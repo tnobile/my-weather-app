@@ -9,6 +9,7 @@ const Forecast = () => {
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
     let [key, setKey] = useState('');
+    let [sleepTime, setSleepTime] = useState(1000);
 
     const uriEncodedCity = encodeURIComponent(city);
 
@@ -36,7 +37,7 @@ const Forecast = () => {
             //               "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
             //           }
             //       })
-            .then(value => sleep(Math.random() * 5000, value))
+            .then(value => sleep(Math.random() * sleepTime, value))
             .then(response => response.json())
             .then(
                 response => {
@@ -65,6 +66,14 @@ const Forecast = () => {
                     className={classes.textInput}
                     value={key}
                     onChange={(e) => setKey(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Enter SleepTije"
+                    maxLength="50"
+                    className={classes.textInput}
+                    value={sleepTime}
+                    onChange={(e) => setSleepTime(e.target.value)}
                 />
                 <input
                     type="text"
