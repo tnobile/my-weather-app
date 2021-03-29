@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import Conditions from '../Conditions/Conditions';
 import Inputs from '../Inputs/Inputs';
+import classes from './Forecast.module.css';
 
 const Forecast = () => {
     let [responseObj, setResponseObj] = useState({});
-    let [city, setCity] = useState('London');
+    let [city, setCity] = useState('');
     let [unit, setUnit] = useState('metric');
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
     let [key, setKey] = useState('');
     let [sleepTime, setSleepTime] = useState(1000);
+    let [lon, setLon] = useState();
+    let [lat, setLat] = useState();
     let [temperature, setTemperature] = useState([{ scale: 'c', temp: 0 }, { scale: 'f', temp: 0 }]);
 
     useEffect(() => console.log(JSON.stringify(temperature)), [temperature]);
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            setLat(position.coords.latitude);
+            setLon(position.coords.longitude);
+        });
+
+        console.log("Latitude is:", lat);
+        console.log("Longitude is:", lon);
+    }, [lat, lon]);
+
     const uriEncodedCity = encodeURIComponent(city);
 
     function handleKey(value) {
@@ -37,15 +50,19 @@ const Forecast = () => {
     }
     function getForecast(e) {
         e.preventDefault();
-        if (city.length === 0) {
-            return setError(0);
-        }
 
+        if (!key || key.length === 0) {
+            setError(0);
+            return;
+        }
         setError(false);
         setResponseObj({});
         setLoading(true);
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&units=${unit}&appid=${key}`;
+        const url = city ?
+            `https://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&units=${unit}&appid=${key}` :
+            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${key}`;
+        console.log(url);
         fetch(url)
             //  The promise, returned by fetch, resolves with an object of the built-in Response class 
             //  as soon as the server responds with headers.
@@ -66,6 +83,7 @@ const Forecast = () => {
                         throw new Error();
                     }
                     //console.log(response);
+                    handleCity(response.name)
                     setResponseObj(response);
                     handleTemperature(response.main.temp, unit);
                     setLoading(false);
@@ -79,7 +97,7 @@ const Forecast = () => {
 
     return (
         <div>
-            <label>{temperature[0]['temp']? JSON.stringify(temperature) : ''}</label>
+            <label>{temperature[0]['temp'] ? JSON.stringify(temperature) : ''}</label>
             <Inputs
                 getForecast={getForecast}
                 city={city}
@@ -91,6 +109,7 @@ const Forecast = () => {
                 handleUnit={handleUnit}
                 handleSleepTime={handleSleepTime}
             />
+            <button className={classes.Button} onClick={() => handleCity('')}>Clear City</button>
             <Conditions
                 responseObj={responseObj}
                 error={error}

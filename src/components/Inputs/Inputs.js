@@ -22,14 +22,17 @@ const Inputs = (props) => {
                     value={props.sleepTime}
                     onChange={e => props.handleSleepTime(e.target.value)}
                 />
-                <input
-                    type="text"
-                    placeholder="Enter City"
-                    maxLength="49"
-                    className={classes.textInput}
-                    value={props.city}
-                    onChange={e => props.handleCity(e.target.value)}
-                />
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Enter City"
+                        maxLength="49"
+                        className={[classes.textInput, classes.inlineFlex].join(' ')}
+                        value={props.city}
+                        onChange={e => props.handleCity(e.target.value)}
+                    />
+                    <button type='button' className={[classes.inlineFlex].join(' ')} onClick={() => props.handleCity('')}>x</button>
+                </div>
                 <label className={classes.Radio}>
                     <input
                         type="radio"
