@@ -1,0 +1,8 @@
+.item {
+  flex-grow:1;
+}
+
+.mainContent {
+  flex-direction: row;
+  display: flex;
+}

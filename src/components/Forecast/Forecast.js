@@ -3,13 +3,12 @@ import Conditions from '../Conditions/Conditions';
 import Inputs from '../Inputs/Inputs';
 import classes from './Forecast.module.css';
 
-const Forecast = () => {
+const Forecast = (props) => {
     let [responseObj, setResponseObj] = useState({});
     let [city, setCity] = useState('');
     let [unit, setUnit] = useState('metric');
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
-    let [key, setKey] = useState('');
     let [sleepTime, setSleepTime] = useState(1000);
     let [lon, setLon] = useState();
     let [lat, setLat] = useState();
@@ -28,9 +27,6 @@ const Forecast = () => {
 
     const uriEncodedCity = encodeURIComponent(city);
 
-    function handleKey(value) {
-        setKey(value);
-    }
     function handleSleepTime(value) {
         setSleepTime(value);
     }
@@ -51,6 +47,7 @@ const Forecast = () => {
     function getForecast(e) {
         e.preventDefault();
 
+        const key=props.myKey;
         if (!key || key.length === 0) {
             setError(0);
             return;
@@ -101,11 +98,10 @@ const Forecast = () => {
             <Inputs
                 getForecast={getForecast}
                 city={city}
-                mykey={key}
+                mykey={props.myKey}
                 unit={unit}
                 sleepTime={sleepTime}
                 handleCity={handleCity}
-                handleKey={handleKey}
                 handleUnit={handleUnit}
                 handleSleepTime={handleSleepTime}
             />

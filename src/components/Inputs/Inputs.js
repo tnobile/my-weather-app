@@ -8,30 +8,22 @@ const Inputs = (props) => {
             <form onSubmit={props.getForecast}>
                 <input
                     type="text"
-                    placeholder="Enter Key"
-                    maxLength="49"
-                    className={classes.textInput}
-                    value={props.mykey}
-                    onChange={e => props.handleKey(e.target.value)}
-                />
-                <input
-                    type="text"
                     placeholder="Enter SleepTime"
                     maxLength="49"
                     className={classes.textInput}
                     value={props.sleepTime}
                     onChange={e => props.handleSleepTime(e.target.value)}
                 />
-                <div>
+                <div className={classes.container}>
                     <input
                         type="text"
                         placeholder="Enter City"
                         maxLength="49"
-                        className={[classes.textInput, classes.inlineFlex].join(' ')}
+                        className={[classes.textInput, classes.item].join(' ')}
                         value={props.city}
                         onChange={e => props.handleCity(e.target.value)}
                     />
-                    <button type='button' className={[classes.inlineFlex].join(' ')} onClick={() => props.handleCity('')}>x</button>
+                    <button type='button' className={classes.Button} onClick={() => props.handleCity('')}>x</button>
                 </div>
                 <label className={classes.Radio}>
                     <input
