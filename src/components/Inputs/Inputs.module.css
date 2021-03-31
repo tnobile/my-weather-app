@@ -19,6 +19,7 @@
 
 .item{
     flex-grow: 1;
+    vertical-align:middle;
 }
 .Radio {
     font-size: small;

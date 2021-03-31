@@ -6,14 +6,17 @@ const Inputs = (props) => {
         <div>
             <h2>Find Current Weather Conditions</h2>
             <form onSubmit={props.getForecast}>
-                <input
-                    type="text"
-                    placeholder="Enter SleepTime"
-                    maxLength="49"
-                    className={classes.textInput}
-                    value={props.sleepTime}
-                    onChange={e => props.handleSleepTime(e.target.value)}
-                />
+                <div className={classes.container}>
+                    <label className={classes.item}>sleep time</label>
+                    <input
+                        type="text"
+                        placeholder="Enter SleepTime"
+                        maxLength="49"
+                        className={[classes.textInput, classes.item].join(' ')}
+                        value={props.sleepTime}
+                        onChange={e => props.handleSleepTime(e.target.value)}
+                    />
+                </div>
                 <div className={classes.container}>
                     <input
                         type="text"

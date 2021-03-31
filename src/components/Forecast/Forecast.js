@@ -5,7 +5,6 @@ import classes from './Forecast.module.css';
 
 const Forecast = (props) => {
     let [responseObj, setResponseObj] = useState({});
-    let [city, setCity] = useState('');
     let [unit, setUnit] = useState('metric');
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
@@ -25,16 +24,12 @@ const Forecast = (props) => {
         console.log("Longitude is:", lon);
     }, [lat, lon]);
 
-    const uriEncodedCity = encodeURIComponent(city);
 
     function handleSleepTime(value) {
         setSleepTime(value);
     }
     function handleUnit(value) {
         setUnit(value);
-    }
-    function handleCity(value) {
-        setCity(value);
     }
     function handleTemperature(value, unit) {
         if (unit === 'metric') {
@@ -55,8 +50,9 @@ const Forecast = (props) => {
         setError(false);
         setResponseObj({});
         setLoading(true);
+        const uriEncodedCity = encodeURIComponent(props.city);
 
-        const url = city ?
+        const url = props.city ?
             `https://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&units=${unit}&appid=${key}` :
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${key}`;
         console.log(url);
@@ -80,7 +76,7 @@ const Forecast = (props) => {
                         throw new Error();
                     }
                     //console.log(response);
-                    handleCity(response.name)
+                    props.handleCity(response.name, props.cityId)
                     setResponseObj(response);
                     handleTemperature(response.main.temp, unit);
                     setLoading(false);
@@ -97,15 +93,15 @@ const Forecast = (props) => {
             <label>{temperature[0]['temp'] ? JSON.stringify(temperature) : ''}</label>
             <Inputs
                 getForecast={getForecast}
-                city={city}
+                city={props.city}
                 mykey={props.myKey}
                 unit={unit}
                 sleepTime={sleepTime}
-                handleCity={handleCity}
+                handleCity={props.handleCity}
                 handleUnit={handleUnit}
                 handleSleepTime={handleSleepTime}
             />
-            <button className={classes.Button} onClick={() => handleCity('')}>Clear City</button>
+            <button className={classes.Button} onClick={() => props.handleCity('')}>Clear City</button>
             <Conditions
                 responseObj={responseObj}
                 error={error}
